@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 app.get("/", (req,res) =>{
-    res.json({message:"Welcome to Backend"})
+    res.json({message:"Welcome to Backend"}) 
 })
 
 
