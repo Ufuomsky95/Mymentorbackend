@@ -6,27 +6,30 @@ import connectDb from "./config/mongodb.js";
 import AuthRoutes from "./routes/AuthRoutes.js";
 import ProfileRoutes from "./routes/profileRoutes.js"
 import cookieParser from "cookie-parser";
+import mentorRoutes from "./routes/mentorRoutes.js";
 dotenv.config(); 
 const app = express();
 
-app.get("/", (req,res) =>{
-    res.json({message:"Welcome to Backend"}) 
+app.get("/", (req, res) =>{
+    res.json({message:"Welcome to Backend"})   
 })
 
 
-app.use(express.json()); 
+app.use(express.json());  
 app.use(cookieParser())
 
 const allowOrigin =["https://mymentorfrontend.vercel.app", "http://localhost:5173"]
 app.use(cors({
-   origin:"allowOrigin",
+   origin: 'http://localhost:5173', 
    credentials:true,
    methods:["GET","PUT","DELETE","POST"],
    allowedHeaders:["content-type", "Authorization"] 
 }))
 app.use("/api/auth",AuthRoutes) 
 
-app.use("/api/profile", ProfileRoutes)
+app.use("/api/profile", ProfileRoutes) 
+
+app.use("/api/", mentorRoutes) 
 
 
 //connecting to database
@@ -34,7 +37,7 @@ app.use("/api/profile", ProfileRoutes)
 
 
 app.listen(8000, ()=> {
-    console.log("Server is running") 
+    console.log("Server is running")    
 }
 
 )

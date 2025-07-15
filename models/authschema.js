@@ -9,6 +9,10 @@ const authschema = new mongoose.Schema({
         enum: ["admin", "mentor","mentee"],
         default:"mentee"
      },
+
+     bio:{type:String, default:""},
+     skills:{type:String, },
+     goal:{type:String, },
      
 }, {timestamps:true},
   {minimize: false},
