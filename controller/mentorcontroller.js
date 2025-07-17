@@ -35,7 +35,19 @@ const BookSession = async(req,res) => {
     } catch (error) {
         
     }
+
 }
 
-export {addMentor, BookSession} 
+const getMentor = async(req,res) => {
+    try {
+        const mentors = await MentorModel.find()
+        res.status(200).json({mentors})
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({message:"server error"});
+    }
+    
+}
+
+export {addMentor, BookSession, getMentor} 
 

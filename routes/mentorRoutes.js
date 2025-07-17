@@ -1,8 +1,9 @@
 import express from "express"
-import { addMentor } from "../controller/mentorController.js"
+import { addMentor, getMentor } from "../controller/mentorController.js"
 
 const mentorRoutes = express.Router()
 
 mentorRoutes.post("/addMentor", addMentor )
+mentorRoutes.get("/get-mentors", getMentor )
 
 export default mentorRoutes
