@@ -1,5 +1,5 @@
 import express from "express"
-import { addMentor, getMentor } from "../controller/mentorController.js"
+import { addMentor, getMentor } from "../controller/mentorcontroller.js"
 
 const mentorRoutes = express.Router()
 
